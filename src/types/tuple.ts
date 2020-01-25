@@ -228,7 +228,9 @@ export function Tuple(...components: Runtype[]): any {
       if (!validated.success) {
         return {
           success: false,
+          //@ts-ignore -- deno
           message: `Expected tuple to be an array: ${validated.message}`,
+          //@ts-ignore -- deno
           key: validated.key,
         };
       }
@@ -246,7 +248,9 @@ export function Tuple(...components: Runtype[]): any {
         if (!validatedComponent.success) {
           return {
             success: false,
+            //@ts-ignore -- deno
             message: validatedComponent.message,
+            //@ts-ignore -- deno
             key: validatedComponent.key ? `[${i}].${validatedComponent.key}` : `[${i}]`,
           };
         }

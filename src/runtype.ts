@@ -15,7 +15,8 @@ import { ValidationError } from './errors.ts';
 /**
  * A runtype determines at runtime whether a value conforms to a type specification.
  */
-export interface Runtype<A = unknown> {
+export interface Runtype<A = any> {
+  // deno: modified to keep happy
   /**
    * Verifies that a value conforms to this runtype. If so, returns the same value,
    * statically typed. Otherwise throws an exception.
@@ -118,6 +119,7 @@ export function create<A extends Runtype>(validate: (x: any) => Result<Static<A>
     if (validated.success) {
       return validated.value;
     }
+    //@ts-ignore -- Property 'message' does not exist on type 'Success<A["_falseWitness"]>'
     throw new ValidationError(validated.message, validated.key);
   }
 

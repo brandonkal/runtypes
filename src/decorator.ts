@@ -81,6 +81,7 @@ export function checked(...runtypes: Runtype[]) {
         const validated = type.validate(args[parameterIndex]);
         if (!validated.success) {
           throw new ValidationError(
+            //@ts-ignore -- deno: TS2339: Property 'message' does not exist on type 'Result<unknown>' | Property 'message' does not exist on type 'Success<unknown>'.
             `${methodId}, argument #${parameterIndex}: ${validated.message}`,
           );
         }

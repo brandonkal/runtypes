@@ -35,7 +35,9 @@ export function InternalRecord<O extends { [_: string]: Runtype }, RO extends bo
           if (!validated.success) {
             return {
               success: false,
+              //@ts-ignore -- deno
               message: validated.message,
+              //@ts-ignore -- deno
               key: validated.key ? `${key}.${validated.key}` : key,
             };
           }

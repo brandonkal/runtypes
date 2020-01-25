@@ -25,7 +25,9 @@ export function Part<O extends { [_: string]: Runtype }>(fields: O) {
           if (!validated.success) {
             return {
               success: false,
+              //@ts-ignore -- deno
               message: validated.message,
+              //@ts-ignore -- deno
               key: validated.key ? `${key}.${validated.key}` : key,
             };
           }

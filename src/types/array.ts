@@ -34,7 +34,9 @@ function InternalArr<E extends Runtype, RO extends boolean>(
           if (!validated.success) {
             return {
               success: false,
+              //@ts-ignore -- deno: Property 'message' does not exist on type 'Success<unknown>'
               message: validated.message,
+              //@ts-ignore -- deno
               key: validated.key ? `[${xs.indexOf(x)}].${validated.key}` : `[${xs.indexOf(x)}]`,
             };
           }

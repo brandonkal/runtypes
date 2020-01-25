@@ -56,7 +56,9 @@ export function Dictionary<V extends Runtype>(value: V, key = 'string'): any {
         if (!validated.success) {
           return {
             success: false,
+            //@ts-ignore -- deno
             message: validated.message,
+            //@ts-ignore -- deno
             key: validated.key ? `${k}.${validated.key}` : k,
           };
         }
