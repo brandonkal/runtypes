@@ -1,4 +1,4 @@
-import { Runtype, create } from '../runtype.ts';
+import { Runtype, create, convertLoose } from '../runtype.ts';
 
 /**
  * The super type of all literal types.
@@ -22,13 +22,18 @@ function literal(value: unknown) {
  */
 export function Literal<A extends LiteralBase>(valueBase: A): Literal<A> {
   return create<Literal<A>>(
-    value =>
-      value === valueBase
+    value => {
+      const n = convertLoose(valueBase, value);
+      if (n.converted && valueBase === n.value) {
+        return { success: true, value: n.value as any };
+      }
+      return value === valueBase
         ? { success: true, value }
         : {
             success: false,
-            message: `Expected literal '${literal(valueBase)}', but was '${literal(value)}'`,
-          },
+            message: `--Expected literal '${literal(valueBase)}', but was '${literal(value)}'`,
+          };
+    },
     { tag: 'literal', value: valueBase },
   );
 }

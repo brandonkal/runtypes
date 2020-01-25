@@ -61,6 +61,8 @@ export function Dictionary<V extends Runtype>(value: V, key = 'string'): any {
             //@ts-ignore -- deno
             key: validated.key ? `${k}.${validated.key}` : k,
           };
+        } else if (validated.value !== x[x]) {
+          x[k] = validated.value;
         }
       }
 

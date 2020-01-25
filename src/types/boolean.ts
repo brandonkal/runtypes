@@ -8,12 +8,16 @@ export interface Boolean extends Runtype<boolean> {
  * Validates that a value is a boolean.
  */
 export const Boolean = create<Boolean>(
-  value =>
-    typeof value === 'boolean'
+  value => {
+    if (value === 'false' || value === 'true') {
+      return { success: true, value: value === 'true' ? true : false };
+    }
+    return typeof value === 'boolean'
       ? { success: true, value }
       : {
           success: false,
           message: `Expected boolean, but was ${value === null ? value : typeof value}`,
-        },
+        };
+  },
   { tag: 'boolean' },
 );

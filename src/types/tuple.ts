@@ -253,6 +253,8 @@ export function Tuple(...components: Runtype[]): any {
             //@ts-ignore -- deno
             key: validatedComponent.key ? `[${i}].${validatedComponent.key}` : `[${i}]`,
           };
+        } else if (validatedComponent.value !== validated.value[i]) {
+          validated.value[i] = validatedComponent.value;
         }
       }
 

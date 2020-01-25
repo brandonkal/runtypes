@@ -29,7 +29,8 @@ function InternalArr<E extends Runtype, RO extends boolean>(
           };
         }
 
-        for (const x of xs) {
+        for (const key in xs) {
+          const x = xs[key];
           let validated = element.validate(x);
           if (!validated.success) {
             return {
@@ -39,6 +40,8 @@ function InternalArr<E extends Runtype, RO extends boolean>(
               //@ts-ignore -- deno
               key: validated.key ? `[${xs.indexOf(x)}].${validated.key}` : `[${xs.indexOf(x)}]`,
             };
+          } else if (validated.value !== x) {
+            xs[key] = validated.value;
           }
         }
 

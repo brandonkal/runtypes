@@ -966,9 +966,10 @@ export function Union(...alternatives: Rt[]): any {
 
   return create(
     value => {
-      for (const { guard } of alternatives) {
-        if (guard(value)) {
-          return { success: true, value };
+      for (const { validate } of alternatives) {
+        const n = validate(value);
+        if (n.success) {
+          return { success: true, value: n.value };
         }
       }
 

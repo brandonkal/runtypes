@@ -153,3 +153,37 @@ export function create<A extends Runtype>(validate: (x: any) => Result<Static<A>
     return Brand(B, A);
   }
 }
+
+/**
+ * convertLoose converts values loosely based on schema.
+ * i.e. "false" becomes false.
+ */
+export function convertLoose(desired: unknown, before: unknown) {
+  const desT = typeof desired;
+  const befT = typeof before;
+  if (desT === 'boolean' && befT === 'string') {
+    let out = before === 'true' ? true : before === 'false' ? false : undefined;
+    if (typeof out !== 'undefined') {
+      return { converted: true, value: out };
+    }
+  }
+  if (desT === 'string') {
+    if (befT === 'number' || befT === 'boolean' || before === null) {
+      return { converted: true, value: String(before) };
+    }
+  }
+  if (desT === 'number' && befT === 'string') {
+    let num = Number(before);
+    if (Number.isNaN(num)) {
+      return { converted: false, value: before };
+    }
+    return { converted: true, value: num };
+  }
+  if (desired === null && before === 'null') {
+    return { converted: true, value: null };
+  }
+  if (desired === 'null' && before === null) {
+    return { converted: true, value: 'null' };
+  }
+  return { converted: false, value: before };
+}

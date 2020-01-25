@@ -40,6 +40,11 @@ export function InternalRecord<O extends { [_: string]: Runtype }, RO extends bo
               //@ts-ignore -- deno
               key: validated.key ? `${key}.${validated.key}` : key,
             };
+          } else {
+            // Allow conversion
+            if (validated.value !== x[key]) {
+              x[key] = validated.value;
+            }
           }
         }
 
