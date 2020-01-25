@@ -1,5 +1,5 @@
-import { Runtype, create, Static } from '../runtype';
-import show from '../show';
+import { Runtype, create, Static } from '../runtype.ts';
+import show from '../show.ts';
 
 export interface StringDictionary<V extends Runtype> extends Runtype<{ [_: string]: Static<V> }> {
   tag: 'dictionary';

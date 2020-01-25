@@ -1,4 +1,4 @@
-import { Union, String, Literal } from '..';
+import { Union, String, Literal } from '...ts';
 
 const ThreeOrString = Union(Literal(3), String);
 

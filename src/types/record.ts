@@ -1,6 +1,6 @@
-import { Runtype, Static, create } from '../runtype';
-import { hasKey } from '../util';
-import show from '../show';
+import { Runtype, Static, create } from '../runtype.ts';
+import { hasKey } from '../util.ts';
+import show from '../show.ts';
 
 type RecordStaticType<O extends { [_: string]: Runtype }, RO extends boolean> = RO extends true
   ? { readonly [K in keyof O]: Static<O[K]> }

@@ -1,4 +1,4 @@
-import { Runtype, Static, create } from '../runtype';
+import { Runtype, Static, create } from '../runtype.ts';
 
 type ArrayStaticType<E extends Runtype, RO extends boolean> = RO extends true
   ? ReadonlyArray<Static<E>>

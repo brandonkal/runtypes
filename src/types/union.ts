@@ -1,5 +1,5 @@
-import { Runtype as Rt, Static, create } from '../runtype';
-import show from '../show';
+import { Runtype as Rt, Static, create } from '../runtype.ts';
+import show from '../show.ts';
 
 export interface Union1<A extends Rt> extends Rt<Static<A>> {
   tag: 'union';

@@ -1,7 +1,7 @@
-import { Runtype } from './runtype';
-import { LiteralBase } from './types/literal';
-import { ConstraintCheck } from './types/constraint';
-import { Constructor } from './types/instanceof';
+import { Runtype } from './runtype.ts';
+import { LiteralBase } from './types/literal.ts';
+import { ConstraintCheck } from './types/constraint.ts';
+import { Constructor } from './types/instanceof.ts';
 
 export type Reflect =
   | { tag: 'unknown' } & Runtype

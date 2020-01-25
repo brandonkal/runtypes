@@ -1,6 +1,6 @@
-import { Runtype, Static, create } from '../runtype';
-import { Array as Arr } from './array';
-import { Unknown } from './unknown';
+import { Runtype, Static, create } from '../runtype.ts';
+import { Array as Arr } from './array.ts';
+import { Unknown } from './unknown.ts';
 
 export interface Tuple1<A extends Runtype> extends Runtype<[Static<A>]> {
   tag: 'tuple';

@@ -1,4 +1,4 @@
-import { Runtype, create } from '../runtype';
+import { Runtype, create } from '../runtype.ts';
 
 interface Sym extends Runtype<symbol> {
   tag: 'symbol';

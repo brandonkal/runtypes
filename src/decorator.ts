@@ -1,5 +1,5 @@
-import { Runtype } from './runtype';
-import { ValidationError } from './errors';
+import { Runtype } from './runtype.ts';
+import { ValidationError } from './errors.ts';
 
 type PropKey = string | symbol;
 const prototypes = new WeakMap<any, Map<PropKey, number[]>>();

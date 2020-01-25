@@ -1,4 +1,4 @@
-import { Reflect } from './index';
+import { Reflect } from './index.ts';
 
 const show = (needsParens: boolean, circular: Set<Reflect>) => (refl: Reflect): string => {
   const parenthesize = (s: string) => (needsParens ? `(${s})` : s);

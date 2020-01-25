@@ -1,4 +1,4 @@
-import { Runtype, create } from '../runtype';
+import { Runtype, create } from '../runtype.ts';
 
 export interface Constructor<V> {
   new (...args: any[]): V;

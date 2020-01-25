@@ -1,4 +1,4 @@
-import { Unknown } from './unknown';
+import { Unknown } from './unknown.ts';
 
 export type Void = Unknown;
 

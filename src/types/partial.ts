@@ -1,6 +1,6 @@
-import { Runtype, Static, create } from '../runtype';
-import { hasKey } from '../util';
-import show from '../show';
+import { Runtype, Static, create } from '../runtype.ts';
+import { hasKey } from '../util.ts';
+import show from '../show.ts';
 
 export interface Part<O extends { [_: string]: Runtype }>
   extends Runtype<{ [K in keyof O]?: Static<O[K]> }> {

@@ -11,7 +11,7 @@ import {
   Matcher3,
   Matcher1,
   Matcher2,
-} from '.';
+} from './index.ts';
 
 export function match<A extends Rt, Z>(a: PairCase<A, Z>): Matcher1<A, Z>;
 export function match<A extends Rt, B extends Rt, Z>(

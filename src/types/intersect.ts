@@ -1,4 +1,4 @@
-import { Runtype, Static, create } from '../runtype';
+import { Runtype, Static, create } from '../runtype.ts';
 
 export interface Intersect1<A extends Runtype> extends Runtype<Static<A>> {
   tag: 'intersect';
