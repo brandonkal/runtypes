@@ -8,7 +8,7 @@ intersections and more.
 
 ## Fork
 
-This is a fork for Deno support. The port also introduces loose conversion. This means a check() call may modifies if required. Primitives should be assigned to themselves.
+This is a fork for Deno support. The port also introduces loose conversion. This means a `check()` call may modify properties if required. Primitives should be assigned to themselves.
 
 This is quite useful when accepting ArchieML (text only types) or data that may require specific types. You define your desired API and if this library can assist to ensure that without throwing, it will.
 
