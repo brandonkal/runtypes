@@ -1,4 +1,4 @@
-# Runtypes [![Build Status](https://travis-ci.org/pelotom/runtypes.svg?branch=master)](https://travis-ci.org/pelotom/runtypes) [![Coverage Status](https://coveralls.io/repos/github/pelotom/runtypes/badge.svg?branch=master)](https://coveralls.io/github/pelotom/runtypes?branch=master)
+# Runtypes
 
 ### Safely bring untyped data into the fold
 
@@ -6,10 +6,26 @@ Runtypes allow you to take values about which you have no assurances and check t
 This is done by means of composable type validators of primitives, literals, arrays, tuples, records, unions,
 intersections and more.
 
+## Fork
+
+This is a fork for Deno support. The port also introduces loose conversion. This means a check() call may modifies if required. Primitives should be assigned to themselves.
+
+This is quite useful when accepting ArchieML (text only types) or data that may require specific types. You define your desired API and if this library can assist to ensure that without throwing, it will.
+
+Examples:
+
+ * "false" | "true" > boolean
+ * "null" > null
+ * "42" > 42
+
+Ideally this could be an option, so PR's that do so are welcome.
+
 ## Installation
 
-```
-npm install --save runtypes
+No need. Just import via Deno!
+
+```ts
+import * as rt from 'https://deno.land/x/lib/runtypes.ts'
 ```
 
 ## Example
@@ -221,7 +237,7 @@ Positive.check(-3); // Throws error: -3 is not positive
 
 You can set a custom name for your runtype, which will be used in default error
 messages and reflection, by using the `name` prop on the optional `options`
-parameter: 
+parameter:
 
 ```typescript
 const C = Number.withConstraint(n => n > 0, {name: 'PositiveNumber'});
@@ -230,7 +246,7 @@ const C = Number.withConstraint(n => n > 0, {name: 'PositiveNumber'});
 To change the type, there are two ways to do it: passing a type guard function
 to a new `Runtype.withGuard()` method, or using the familiar
 `Runtype.withConstraint()` method. (Both methods also accept an `options`
-parameter to optionally set the name.) 
+parameter to optionally set the name.)
 
 Using a type guard function is the easiest option to change the static type,
 because TS will infer the desired type from the return type of the guard
@@ -260,7 +276,7 @@ underlying type *before* running your constraint function. So it's important to
 use a lowest-common-denominator type that will pass validation for all expected
 inputs of your constraint function or type guard.  If there's no obvious
 lowest-common-denominator type, you can always use `Unknown` as the underlying
-type, as shown in the `Buffer` examples above.  
+type, as shown in the `Buffer` examples above.
 
 Speaking of base types, if you're using a type guard function and your base type
 is `Unknown`, then there's a convenience runtype `Guard` available, which is a
@@ -331,7 +347,7 @@ the `Record` runtype normally instead.
 ```ts
 const MilitaryShip = Ship.And(Record({
   shipClass: Literal('military'),
-  
+
   // Must NOT be undefined, but can be null
   lastDeployedTimestamp: Number.Or(Null),
 }));
