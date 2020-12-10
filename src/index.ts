@@ -1,5 +1,4 @@
-export { Runtype } from './runtype.ts';
-export type { Static } from './runtype.ts'
+export type { Runtype, Static } from './runtype.ts'
 export * from './reflect.ts';
 export * from './result.ts';
 export * from './contract.ts';
