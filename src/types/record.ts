@@ -1,7 +1,7 @@
-import { Runtype, Static, create, innerValidate } from '../runtype';
-import { enumerableKeysOf, FAILURE, hasKey, SUCCESS } from '../util';
-import { Optional } from './optional';
-import { Details, Result } from '../result';
+import { Runtype, Static, create, innerValidate } from '../runtype.ts';
+import { enumerableKeysOf, FAILURE, hasKey, SUCCESS } from '../util.ts';
+import { Optional } from './optional.ts';
+import { Details, Result } from '../result.ts';
 
 type FilterOptionalKeys<T> = Exclude<
   {

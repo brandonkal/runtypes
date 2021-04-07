@@ -1,4 +1,4 @@
-import { Runtype, create } from '../runtype';
+import { Runtype, create } from '../runtype.ts';
 
 /**
  * Construct a possibly-recursive Runtype.

@@ -1,7 +1,7 @@
-import { Runtype } from './index';
-import { ValidationError } from './errors';
-import { Static } from './runtype';
-import { FAILURE } from './util';
+import { Runtype } from './index.ts';
+import { ValidationError } from './errors.ts';
+import { Static } from './runtype.ts';
+import { FAILURE } from './util.ts';
 
 export interface AsyncContract<A extends readonly Runtype[], R extends Runtype> {
   enforce(

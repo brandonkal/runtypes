@@ -1,7 +1,7 @@
-import { Union, String, Literal, Record, Number, InstanceOf } from '..';
-import { Failcode } from '../result';
-import { Static } from '../runtype';
-import { LiteralBase } from './literal';
+import { Union, String, Literal, Record, Number, InstanceOf } from '../index.ts';
+import { Failcode } from '../result.ts';
+import { Static } from '../runtype.ts';
+import { LiteralBase } from './literal.ts';
 
 const ThreeOrString = Union(Literal(3), String);
 
@@ -28,10 +28,7 @@ describe('union', () => {
 
   describe('match', () => {
     it('works with exhaustive cases', () => {
-      const match = ThreeOrString.match(
-        three => three + 5,
-        str => str.length * 4,
-      );
+      const match = ThreeOrString.match(three => three + 5, str => str.length * 4);
       expect(match(3)).toBe(8);
       expect(match('hello')).toBe(20);
     });

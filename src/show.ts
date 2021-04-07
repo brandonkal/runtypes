@@ -1,5 +1,5 @@
-import { Reflect } from './index';
-import { Optional } from './types/optional';
+import { Reflect } from './index.ts';
+import { Optional } from './types/optional.ts';
 
 const show = (needsParens: boolean, circular: Set<Reflect>) => (refl: Reflect): string => {
   const parenthesize = (s: string) => (needsParens ? `(${s})` : s);

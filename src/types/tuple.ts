@@ -1,7 +1,7 @@
-import { Reflect } from '../reflect';
-import { Details, Result } from '../result';
-import { Runtype, Static, create, innerValidate } from '../runtype';
-import { enumerableKeysOf, FAILURE, SUCCESS } from '../util';
+import { Reflect } from '../reflect.ts';
+import { Details, Result } from '../result.ts';
+import { Runtype, Static, create, innerValidate } from '../runtype.ts';
+import { enumerableKeysOf, FAILURE, SUCCESS } from '../util.ts';
 
 export interface Tuple<A extends readonly Runtype[]>
   extends Runtype<

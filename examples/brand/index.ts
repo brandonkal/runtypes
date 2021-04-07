@@ -1,4 +1,4 @@
-import { String, Static, Record, Array, Runtype, Partial } from 'runtypes';
+import { String, Static, Record, Array, Runtype, Partial } from '../../src/index.ts';
 
 export const ID = String.withBrand('ID');
 export type ID = Static<typeof ID>;

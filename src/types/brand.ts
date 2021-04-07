@@ -1,5 +1,5 @@
-import { Reflect } from '../reflect';
-import { Runtype, Static, create } from '../runtype';
+import { Reflect } from '../reflect.ts';
+import { Runtype, Static, create } from '../runtype.ts';
 
 export declare const RuntypeName: unique symbol;
 

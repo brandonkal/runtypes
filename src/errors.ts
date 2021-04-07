@@ -1,4 +1,4 @@
-import { Failcode, Failure, Details } from './result';
+import { Failcode, Failure, Details } from './result.ts';
 
 export class ValidationError extends Error {
   public name: string = 'ValidationError';

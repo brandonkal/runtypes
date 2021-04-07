@@ -1,6 +1,6 @@
-import { Reflect } from '../reflect';
-import { Runtype, create } from '../runtype';
-import { FAILURE, SUCCESS } from '../util';
+import { Reflect } from '../reflect.ts';
+import { Runtype, create } from '../runtype.ts';
+import { FAILURE, SUCCESS } from '../util.ts';
 
 export interface Number extends Runtype<number> {
   tag: 'number';

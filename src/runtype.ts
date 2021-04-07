@@ -1,8 +1,8 @@
-import { Result, Union, Intersect, Optional, Constraint, ConstraintCheck, Brand } from './index';
-import { Reflect } from './reflect';
-import show from './show';
-import { ValidationError } from './errors';
-import { SUCCESS } from './util';
+import { Result, Union, Intersect, Optional, Constraint, ConstraintCheck, Brand } from './index.ts';
+import { Reflect } from './reflect.ts';
+import show from './show.ts';
+import { ValidationError } from './errors.ts';
+import { SUCCESS } from './util.ts';
 
 /**
  * A runtype determines at runtime whether a value conforms to a type specification.
