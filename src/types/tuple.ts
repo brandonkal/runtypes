@@ -28,9 +28,13 @@ export function Tuple<T extends readonly Runtype[]>(...components: T): Tuple<T> 
       );
 
     const keys = enumerableKeysOf(xs);
-    const results: Result<unknown>[] = keys.map(key =>
-      innerValidate(components[key as any], xs[key as any], visited),
-    );
+    const results: Result<unknown>[] = keys.map(key => {
+      const res = innerValidate(components[key as any], xs[key as any], visited);
+      if (res.success && res.value !== xs[key as any]) {
+        xs[key as any] = res.value;
+      }
+      return res;
+    });
     const details = keys.reduce<{ [key: number]: string | Details } & (string | Details)[]>(
       (details, key) => {
         const result = results[key as any];
