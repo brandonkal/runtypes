@@ -1,6 +1,6 @@
-import { Runtype } from './runtype';
-import { ValidationError } from './errors';
-import { FAILURE } from './util';
+import { Runtype } from './runtype.ts';
+import { ValidationError } from './errors.ts';
+import { FAILURE } from './util.ts';
 
 type PropKey = string | symbol;
 const prototypes = new WeakMap<any, Map<PropKey, number[]>>();
@@ -76,7 +76,7 @@ export function checked(...runtypes: Runtype[]) {
       throw new Error('Number of `@checked` runtypes exceeds actual parameter length.');
     }
 
-    descriptor.value = function (...args: any[]) {
+    descriptor.value = function(...args: any[]) {
       runtypes.forEach((type, typeIndex) => {
         const parameterIndex = validParameterIndices[typeIndex];
         const result = type.validate(args[parameterIndex]);

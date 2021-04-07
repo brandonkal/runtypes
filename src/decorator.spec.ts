@@ -1,4 +1,4 @@
-import { check, checked, String } from '.';
+import { check, checked, String } from './index.ts';
 
 describe('Decorators', () => {
   describe('@checked', () => {

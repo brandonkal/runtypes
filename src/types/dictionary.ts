@@ -1,9 +1,9 @@
-import { Runtype, create, Static, innerValidate } from '../runtype';
-import { String } from './string';
-import { Constraint } from './constraint';
-import show from '../show';
-import { enumerableKeysOf, FAILURE, SUCCESS } from '../util';
-import { Details, Result } from '../result';
+import { Runtype, create, Static, innerValidate } from '../runtype.ts';
+import { String } from './string.ts';
+import { Constraint } from './constraint.ts';
+import show from '../show.ts';
+import { enumerableKeysOf, FAILURE, SUCCESS } from '../util.ts';
+import { Details, Result } from '../result.ts';
 
 type DictionaryKeyType = string | number | symbol;
 type StringLiteralFor<K extends DictionaryKeyType> = K extends string
@@ -98,7 +98,7 @@ export function Dictionary<V extends Runtype, K extends DictionaryKeyRuntype | '
         // string keys automatically. So, if the key can be interpreted as a
         // decimal number, then test it against a `Number` OR `String` runtype.
         const isNumberLikeKey = typeof key === 'string' && numberString.test(key);
-        const keyInterop = isNumberLikeKey ? global.Number(key) : key;
+        const keyInterop = isNumberLikeKey ? globalThis.Number(key) : key;
         if (
           isNumberLikeKey
             ? !keyRuntype.guard(keyInterop) && !keyRuntype.guard(key)

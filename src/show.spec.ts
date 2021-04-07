@@ -22,8 +22,8 @@ import {
   Lazy,
   InstanceOf,
   Reflect,
-} from '.';
-import show from './show';
+} from './index.ts';
+import show from './show.ts';
 
 class TestClass {}
 

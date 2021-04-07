@@ -1,6 +1,6 @@
-import { Reflect } from '../reflect';
-import { Runtype, create } from '../runtype';
-import { FAILURE } from '../util';
+import { Reflect } from '../reflect.ts';
+import { Runtype, create } from '../runtype.ts';
+import { FAILURE } from '../util.ts';
 
 export interface Never extends Runtype<never> {
   tag: 'never';

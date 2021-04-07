@@ -1,4 +1,4 @@
-import { Literal, String, Number, match } from '.';
+import { Literal, String, Number, match } from './index.ts';
 
 describe('match', () => {
   it('works', () => {

@@ -1,6 +1,6 @@
-import { Reflect } from '../reflect';
-import { Runtype, create } from '../runtype';
-import { SUCCESS } from '../util';
+import { Reflect } from '../reflect.ts';
+import { Runtype, create } from '../runtype.ts';
+import { SUCCESS } from '../util.ts';
 
 export interface Unknown extends Runtype {
   tag: 'unknown';

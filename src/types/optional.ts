@@ -1,6 +1,6 @@
-import { Reflect } from '../reflect';
-import { Runtype, create, Static } from '../runtype';
-import { SUCCESS } from '../util';
+import { Reflect } from '../reflect.ts';
+import { Runtype, create, Static } from '../runtype.ts';
+import { SUCCESS } from '../util.ts';
 
 export interface Optional<R extends Runtype> extends Runtype<Static<R> | undefined> {
   tag: 'optional';

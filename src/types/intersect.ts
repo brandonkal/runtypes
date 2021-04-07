@@ -1,6 +1,6 @@
-import { Reflect } from '../reflect';
-import { Runtype, Static, create, innerValidate } from '../runtype';
-import { SUCCESS } from '../util';
+import { Reflect } from '../reflect.ts';
+import { Runtype, Static, create, innerValidate } from '../runtype.ts';
+import { SUCCESS } from '../util.ts';
 
 export interface Intersect<A extends readonly [Runtype, ...Runtype[]]>
   extends Runtype<

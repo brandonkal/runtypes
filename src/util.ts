@@ -1,8 +1,8 @@
 // Type guard to determine if an object has a given key
 
-import { Reflect } from './reflect';
-import { Details, Failcode, Failure, Success } from './result';
-import show from './show';
+import { Reflect } from './reflect.ts';
+import { Details, Failcode, Failure, Success } from './result.ts';
+import show from './show.ts';
 
 // If this feature gets implemented, we can use `in` instead: https://github.com/Microsoft/TypeScript/issues/10485
 export function hasKey<K extends string | number | symbol>(

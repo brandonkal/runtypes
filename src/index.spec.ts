@@ -28,11 +28,11 @@ import {
   InstanceOf,
   Brand,
   Guard,
-} from './index';
+} from './index.ts';
 
-import { Constructor } from './types/instanceof';
-import { ValidationError } from './errors';
-import { Details, Failcode } from './result';
+import { Constructor } from './types/instanceof.ts';
+import { ValidationError } from './errors.ts';
+import { Details, Failcode } from './result.ts';
 
 const boolTuple = Tuple(Boolean, Boolean, Boolean);
 const record1 = Record({ Boolean, Number });
@@ -89,7 +89,7 @@ class SomeClass {
 class SomeOtherClass {
   constructor(public n: number) {}
 }
-const SOMECLASS_TAG = 'I am a SomeClass instance (any version)';
+const SOMECLASS_TAG = 'I am a SomeClass instance (any version).ts';
 class SomeClassV1 {
   constructor(public n: number) {}
   public _someClassTag = SOMECLASS_TAG;
@@ -117,7 +117,7 @@ const runtypes = {
   3: Literal(3),
   42: Literal(42),
   bigint: BigInt,
-  '42n': Literal(global.BigInt(42)),
+  '42n': Literal(globalThis.BigInt(42)),
   brandedNumber: Number.withBrand('number'),
   String,
   'hello world': Literal('hello world'),
@@ -188,7 +188,7 @@ type RuntypeName = keyof typeof runtypes;
 const runtypeNames = Object.keys(runtypes) as RuntypeName[];
 
 class Foo {
-  x!: 'blah';
+  x!: 'blah.ts';
 } // Should not be recognized as a Dictionary
 
 const testValues: { value: unknown; passes: RuntypeName[] }[] = [
@@ -201,7 +201,7 @@ const testValues: { value: unknown; passes: RuntypeName[] }[] = [
     value: 42,
     passes: ['Number', 'brandedNumber', 42, 'MoreThanThree', 'MoreThanThreeWithMessage'],
   },
-  { value: global.BigInt(42), passes: ['bigint', '42n'] },
+  { value: globalThis.BigInt(42), passes: ['bigint', '42n'] },
   { value: 'hello world', passes: ['String', 'hello world', 'union1'] },
   { value: [Symbol('0'), Symbol(42), Symbol()], passes: ['symbolArray'] },
   { value: Symbol(), passes: ['Sym'] },
@@ -282,7 +282,7 @@ const getCircularReplacer = () => {
   return (_key: string, value: unknown) => {
     if (typeof value === 'object' && value !== null) {
       if (seen.has(value)) {
-        return '<Circular Reference>';
+        return '<Circular Reference>.ts';
       }
       seen.add(value);
     } else if (typeof value === 'symbol' || typeof value === 'function') return value.toString();

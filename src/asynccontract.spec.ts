@@ -1,5 +1,5 @@
-import { AsyncContract, Number } from '.';
-import { ValidationError } from './errors';
+import { AsyncContract, Number } from './index.ts';
+import { ValidationError } from './errors.ts';
 
 describe('AsyncContract', () => {
   describe('when function does not return a promise', () => {

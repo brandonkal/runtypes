@@ -1,7 +1,7 @@
-import { Runtype, RuntypeBase as Rt, Static, create, innerValidate } from '../runtype';
-import { LiteralBase } from './literal';
-import { FAILURE, hasKey, SUCCESS } from '../util';
-import { Reflect } from '../reflect';
+import { Runtype, RuntypeBase as Rt, Static, create, innerValidate } from '../runtype.ts';
+import { LiteralBase } from './literal.ts';
+import { FAILURE, hasKey, SUCCESS } from '../util.ts';
+import { Reflect } from '../reflect.ts';
 
 export interface Union<A extends readonly [Rt, ...Rt[]]>
   extends Runtype<

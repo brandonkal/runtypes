@@ -1,7 +1,7 @@
-import { Reflect } from '../reflect';
-import { Runtype, Static, create } from '../runtype';
-import { FAILURE, SUCCESS } from '../util';
-import { Unknown } from './unknown';
+import { Reflect } from '../reflect.ts';
+import { Runtype, Static, create } from '../runtype.ts';
+import { FAILURE, SUCCESS } from '../util.ts';
+import { Unknown } from './unknown.ts';
 
 export type ConstraintCheck<A extends Runtype> = (x: Static<A>) => boolean | string;
 

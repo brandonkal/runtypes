@@ -6,3 +6,5 @@
 # line endings from CRLF to LF causing git to report modified files
 # with no code changes.
 *.ts text eol=lf
+.vscode
+*ignore.ts

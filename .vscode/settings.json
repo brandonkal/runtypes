@@ -6,5 +6,8 @@
     "lib/": true,
     "coverage/": true
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "deno.enable": true,
+  "deno.lint": false,
+  "deno.unstable": false
 }

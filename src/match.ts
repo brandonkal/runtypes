@@ -1,4 +1,4 @@
-import { Runtype as Rt, Case, Matcher } from '.';
+import { Runtype as Rt, Case, Matcher } from './index.ts';
 
 export function match<A extends [PairCase<any, any>, ...PairCase<any, any>[]]>(
   ...cases: A
