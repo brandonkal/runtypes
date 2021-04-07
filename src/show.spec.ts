@@ -24,6 +24,7 @@ import {
   Reflect,
 } from './index.ts';
 import show from './show.ts';
+import { it, expect } from 'https://x.kite.run/lib/testutils.ts';
 
 class TestClass {}
 

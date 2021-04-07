@@ -1,5 +1,6 @@
 import { Reflect } from '../reflect.ts';
-import { Runtype, create } from '../runtype.ts';
+import type { Runtype } from '../runtype.ts';
+import { create } from '../runtype.ts';
 import { FAILURE, SUCCESS } from '../util.ts';
 
 export interface Boolean extends Runtype<boolean> {

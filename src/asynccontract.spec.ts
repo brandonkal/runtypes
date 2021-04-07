@@ -1,6 +1,8 @@
 import { AsyncContract, Number } from './index.ts';
 import { ValidationError } from './errors.ts';
 
+import { describe, it, expect, fail } from 'https://x.kite.run/lib/testutils.ts';
+
 describe('AsyncContract', () => {
   describe('when function does not return a promise', () => {
     it('throws a validation error', () => {

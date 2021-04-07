@@ -6,6 +6,28 @@ Runtypes allow you to take values about which you have no assurances and check t
 This is done by means of composable type validators of primitives, literals, arrays, tuples, records, unions,
 intersections and more.
 
+## Fork
+
+This is a new fork for Deno support. A faithful port of v6.0.0. is available on the `deno-v6` branch
+
+The default branch `deno-v6-loose` branch introduces loose conversion. This means a `check()` call may modify properties if required. Primitives should be assigned to themselves.
+
+This is quite useful when accepting ArchieML (text only types) or data that may require specific types. You define your desired API and if this library can assist to ensure that without throwing, it will.
+
+Conversion Examples:
+
+- "false" | "true" > boolean
+- "null" > null
+- "42" > 42
+
+## Installation
+
+No need. Just import via Deno!
+
+```ts
+import * as rt from 'https://x.kite.run/lib/runtypes.ts';
+```
+
 ## Installation
 
 ```
@@ -166,11 +188,7 @@ function disembark(obj: {}) {
 The `Union` runtype offers the ability to do type-safe, exhaustive case analysis across its variants using the `match` method:
 
 ```ts
-const isHabitable = SpaceObject.match(
-  asteroid => false,
-  planet => planet.habitable,
-  ship => true,
-);
+const isHabitable = SpaceObject.match(asteroid => false, planet => planet.habitable, ship => true);
 
 if (isHabitable(spaceObject)) {
   // ...

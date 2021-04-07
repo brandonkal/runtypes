@@ -1,4 +1,4 @@
-import { Reflect } from './index.ts';
+import type { Reflect } from './index.ts';
 import { Optional } from './types/optional.ts';
 
 const show = (needsParens: boolean, circular: Set<Reflect>) => (refl: Reflect): string => {
