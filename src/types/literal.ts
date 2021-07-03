@@ -1,5 +1,5 @@
 import { Reflect } from '../reflect.ts';
-import { Runtype, create } from '../runtype.ts';
+import { Runtype, create, convertLoose } from '../runtype.ts';
 import { FAILURE, SUCCESS } from '../util.ts';
 
 /**
@@ -29,10 +29,15 @@ function literal(value: unknown) {
 export function Literal<A extends LiteralBase>(valueBase: A): Literal<A> {
   const self = ({ tag: 'literal', value: valueBase } as unknown) as Reflect;
   return create<Literal<A>>(
-    value =>
-      value === valueBase
+    value => {
+      const n = convertLoose(valueBase, value)
+      if (n.converted && valueBase === n.value) {
+        return SUCCESS(n.value as any)
+      }
+      return value === valueBase
         ? SUCCESS(value)
-        : FAILURE.VALUE_INCORRECT('literal', `\`${literal(valueBase)}\``, `\`${literal(value)}\``),
+        : FAILURE.VALUE_INCORRECT('literal', `\`${literal(valueBase)}\``, `\`${literal(value)}\``)
+    },
     self,
   );
 }
